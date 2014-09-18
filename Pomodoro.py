@@ -2,9 +2,13 @@ import time
 import Tkinter
 
 # Have to incorporate weekly tracker, load total pomodoros from file and reset weekly
-# Also add in sounds for starting/completing work and breaks
+# Add in sounds for starting/completing work and breaks
 # Implement a pause function
 # Make executable GUI
+# In GUI include Start and pause/resume buttons, countdown timer, number of pomodoros, working/short/long break info
+# Make settings button/drop down where you can adjust the times
+# keybinds?
+
 
 # Maybe sleep every second and run if pause variable isn't true, button toggles variable between true and false
 
@@ -81,18 +85,16 @@ def run():
 
 run()
 
-
 '''
-
 # Call this when pause=True to sleep until pause=False
 def pause():
     global pause
-    pause=True
     if pauseB["text"]=="Pause":
-        pauseB["text"]=="Resume"
-    if pauseB["text"]=="Resume":
-        pauseB["text"]=="Pause"
-    pauseB.pack()
+        pauseB.config(text="Resume")
+        pause=False
+    elif pauseB["text"]=="Resume":
+        pauseB.config(text="Pause")
+        pause=True
 
 
 
@@ -100,7 +102,7 @@ def pause():
 # Making GUI
 
 window=Tkinter.Tk()
-
+window.title('Pomodoro Timer')
 startB = Tkinter.Button(window,text="Start", command = run)
 startB.pack()
 
@@ -108,5 +110,4 @@ pauseB = Tkinter.Button(window,text="Pause", command = pause)
 pauseB.pack()
 
 window.mainloop()
-
 '''
